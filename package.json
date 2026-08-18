@@ -1,0 +1,28 @@
+{
+  "name": "uncaged-sip-relay",
+  "version": "1.0.0",
+  "description": "UNCAGED SIP Relay — serverless SIP-01 search index relay (Nostr kind 39697) on Cloudflare Workers + D1 + Durable Objects",
+  "main": "src/index.ts",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NostrDanish/SIP-Booster-Relay.git"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "typecheck": "tsc --noEmit",
+    "test": "node tests/run-tests.mjs"
+  },
+  "dependencies": {
+    "@noble/curves": "^1.6.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20260101.0",
+    "esbuild": "^0.19.12",
+    "typescript": "^5.5.0",
+    "wrangler": "^4.0.0"
+  }
+}

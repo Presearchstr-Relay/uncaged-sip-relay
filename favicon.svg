@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f0b45a"/>
+      <stop offset="1" stop-color="#d98a2b"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="#12121a" stroke="#2a2a3a" stroke-width="2"/>
+  <!-- open cage bars -->
+  <g stroke="url(#g)" stroke-width="3.4" stroke-linecap="round">
+    <line x1="18" y1="14" x2="18" y2="34"/>
+    <line x1="27" y1="14" x2="27" y2="34"/>
+    <line x1="36" y1="14" x2="36" y2="34"/>
+    <line x1="45" y1="14" x2="45" y2="30"/>
+  </g>
+  <line x1="14" y1="14" x2="50" y2="14" stroke="url(#g)" stroke-width="3.4" stroke-linecap="round"/>
+  <!-- search lens breaking out of the cage -->
+  <circle cx="33" cy="38" r="10" fill="none" stroke="#e8e8f0" stroke-width="3.4"/>
+  <line x1="41" y1="46" x2="50" y2="55" stroke="#e8e8f0" stroke-width="3.4" stroke-linecap="round"/>
+</svg>

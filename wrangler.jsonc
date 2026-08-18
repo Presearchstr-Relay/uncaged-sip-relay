@@ -1,0 +1,38 @@
+// UNCAGED SIP Relay — Cloudflare configuration for Shakespeare deploys.
+// Operators deploying with the wrangler CLI use wrangler.toml instead.
+{
+  "name": "uncaged-sip-relay",
+  "main": "worker.ts",
+  "compatibility_date": "2025-06-01",
+
+  "assets": {
+    "directory": "./",
+    "binding": "ASSETS"
+  },
+
+  "durable_objects": {
+    "bindings": [
+      { "name": "RELAY_WEBSOCKET", "class_name": "RelayWebSocket" }
+    ]
+  },
+
+  // Create your own database and paste its real id here:
+  //   npx wrangler d1 create sip01-relay
+  "d1_databases": [
+    {
+      "binding": "RELAY_DATABASE",
+      "database_name": "sip01-relay",
+      "database_id": "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+    }
+  ],
+
+  "triggers": { "crons": ["0 0 * * *"] },
+
+  "limits": { "cpu_ms": 300000 },
+
+  "observability": { "logs": { "enabled": false } },
+
+  "migrations": [
+    { "tag": "v4", "new_sqlite_classes": ["RelayWebSocket"] }
+  ]
+}

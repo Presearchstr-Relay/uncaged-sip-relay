@@ -1,0 +1,22 @@
+# Worker assets = the static operator UI + in-app documentation.
+# Everything not listed here is uploaded; keep uploads tight.
+node_modules/
+src/
+scripts/
+tests/
+.git/
+.gitlab-ci.yml
+.github/
+.agents/
+.wrangler/
+dist/
+*.ts
+*.toml
+*.json
+*.jsonc
+*.lock
+LICENSE
+components.json
+opencode.json
+.mcp.json
+AGENTS.md

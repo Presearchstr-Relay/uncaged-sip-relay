@@ -1,0 +1,44 @@
+# UNCAGED SIP Relay — wrangler configuration
+# Docs: docs/DEPLOYMENT.md
+
+# Change name if you feel like it
+name = "uncaged-sip-relay"
+compatibility_date = "2025-06-01"
+main = "src/index.ts"
+
+# Static operator UI (landing page, dashboard, search, explorer, deploy
+# wizard, tests). `.assetsignore` in the project root limits the upload to
+# the UI files only.
+[assets]
+directory = "./"
+binding = "ASSETS"
+
+# Durable Objects binding (WebSocket sessions + multi-region broadcast mesh)
+[[durable_objects.bindings]]
+name = "RELAY_WEBSOCKET"
+class_name = "RelayWebSocket"
+
+# D1 Database binding
+# Important! Create your own database and paste its name/id here:
+#   npx wrangler d1 create sip01-relay
+[[d1_databases]]
+binding = "RELAY_DATABASE"
+database_name = "sip01-relay"
+database_id = "8db8f17e-d7e1-4afa-a96e-0e8c78773e5c"
+
+# Cron trigger for 24hr database maintenance
+[triggers]
+crons = ["0 0 * * *"]
+
+# CPU limits (lower to 10 if not on the paid Workers plan)
+[limits]
+cpu_ms = 300000
+
+# Enable logs (off by default, but can enable)
+[observability.logs]
+enabled = false
+
+# Durable Object migration with SQLite storage backend
+[[migrations]]
+tag = "v4"
+new_sqlite_classes = ["RelayWebSocket"]
